@@ -24,3 +24,10 @@ When range *updates* dominate and individual element reads are rare, touching ev
 - The last block may be shorter than `block_size`; it is still tracked as its own block.
 - `initial` is copied, not stored by reference, so mutating the source list after construction has no effect.
 - The aggregation operator defaults to `+` but can be any associative, monotonic binary function with `0` as identity (e.g. `max` with identity `0`, or any group-like operation). Non-identity defaults are not supported.
+
+## Performance
+
+The window keeps a bounded buffer, so `push` is constant time and memory does not
+grow with the length of the stream. `peak` and `trough` are linear in the window
+size, which is the trade that keeps `push` cheap.
+
