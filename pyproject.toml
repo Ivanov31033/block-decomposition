@@ -1,6 +1,6 @@
 [project]
 name = "block-decomposition"
-version = "0.1.1"
+version = "0.1.2"
 description = "Partitions an array into fixed-size blocks for efficient bulk range updates."
 requires-python = ">=3.10"
 dependencies = []
